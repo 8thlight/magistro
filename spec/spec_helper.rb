@@ -7,7 +7,8 @@ require "limelight/mouse"
 $PRODUCTION_PATH = File.expand_path(File.dirname(__FILE__) + "/../")
 Gem.use_paths(File.join($PRODUCTION_PATH , "__resources", "gems"), Gem.default_path)
 
-
+$: << File.expand_path(File.dirname(__FILE__) + "/../lib")
+$: << File.expand_path(File.dirname(__FILE__) + "/../components")
 Dir.glob(File.join("__resources", "gems", "gems", "**", "lib")).each do |dir|
   $: << dir
 end

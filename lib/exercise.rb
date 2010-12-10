@@ -1,30 +1,26 @@
-require "spec"
-
+require "step"
 class Exercise
-  attr_accessor :spec_filename, :options, :error_stream, :output_stream, :run_examples
+  attr_accessor :directory
+  def self.load_from(dir) 
+    raise "blahblah is not a valid Exercise." unless File.exist?(dir)
+    return new(dir)
+  end
 
-  def initialize(options = {})
-    @spec_filename = options[:spec_filename]
-    @error_stream = StringIO.new("")
-    @output_stream = StringIO.new("")
-    if options[:run_examples].nil?
-      @run_examples = true
-    else
-      @run_examples = options[:run_examples]
-    end
+  def initialize(dir)
+    @directory = dir
   end
-  
-  def run
-    @options = Spec::Runner::Options.new(@error_stream, @output_stream)
-    @options.files << @spec_filename
-    if !@run_examples
-      @options.examples_should_not_be_run
-    end
-    Spec::Runner.use @options
-    @options.run_examples
-  rescue Exception => e
-    puts e.message
-    puts e.backtrace
+
+  def name
+    return File.read(File.join(@directory, "name"))
   end
-  
+
+  def steps
+    steps = []
+    Dir.entries(@directory).each do |entry|
+      filename = File.join(@directory, entry)
+      steps << Step.new(:directory => filename) if File.directory?(filename) && ![".", ".."].include?(entry)
+    end
+    return steps
+  end
 end
+

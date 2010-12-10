@@ -60,19 +60,28 @@
   <component name="FileColors" enabled="true" enabledForTabs="true" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="load_lesson.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/exercises/players/load_lesson.rb">
+      <file leaf-file-name="load_lesson_spec.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spec/exercises/load_lesson_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="19" selection-end="46" vertical-scroll-proportion="-0.46153846">
+            <state line="29" column="37" selection-start="1184" selection-end="1184" vertical-scroll-proportion="-13.384615">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="load_lesson_spec.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spec/exercises/load_lesson_spec.rb">
+      <file leaf-file-name="load_lesson.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/exercises/players/load_lesson.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="26" selection-start="95" selection-end="95" vertical-scroll-proportion="-0.46153846">
+            <state line="7" column="39" selection-start="240" selection-end="240" vertical-scroll-proportion="0.17872341">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="exercise_spec.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spec/lib/exercise_spec.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="34" selection-start="788" selection-end="788" vertical-scroll-proportion="-12.923077">
               <folding />
             </state>
           </provider>
@@ -81,34 +90,7 @@
       <file leaf-file-name="run_spec.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/exercises/run_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="0" selection-start="351" selection-end="351" vertical-scroll-proportion="-4.6153846">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="run.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/exercises/players/run.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="35" selection-start="53" selection-end="53" vertical-scroll-proportion="-0.46153846">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="exercise.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/exercise.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="18" selection-start="299" selection-end="299" vertical-scroll-proportion="-6.4615383">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="exercise_spec.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/spec/lib/exercise_spec.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="15" selection-start="733" selection-end="733" vertical-scroll-proportion="0.6893617">
+            <state line="13" column="6" selection-start="212" selection-end="525" vertical-scroll-proportion="-6.0">
               <folding />
             </state>
           </provider>
@@ -124,11 +106,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/etc/template_method/1_simple/name" />
-        <option value="$PROJECT_DIR$/spec/lib/lesson_spec.rb" />
-        <option value="$PROJECT_DIR$/lib/lesson.rb" />
-        <option value="$PROJECT_DIR$/etc/template_method/1_simple/1/description" />
-        <option value="$PROJECT_DIR$/spec/lib/exercise_spec.rb" />
         <option value="$PROJECT_DIR$/spec/lib/step_spec.rb" />
         <option value="$PROJECT_DIR$/lib/step.rb" />
         <option value="$PROJECT_DIR$/lib/exercise.rb" />
@@ -137,9 +114,14 @@
         <option value="$PROJECT_DIR$/production.rb" />
         <option value="$PROJECT_DIR$/components/file_chooser.rb" />
         <option value="$PROJECT_DIR$/components/directory_chooser.rb" />
-        <option value="$PROJECT_DIR$/exercises/players/load_lesson.rb" />
         <option value="$PROJECT_DIR$/spec/lib/directory_chooser_spec.rb" />
+        <option value="$PROJECT_DIR$/exercises/props.rb" />
+        <option value="$PROJECT_DIR$/exercises/styles.rb" />
+        <option value="$PROJECT_DIR$/etc/template_method/1_simple/1/class_spec.rb" />
         <option value="$PROJECT_DIR$/spec/exercises/load_lesson_spec.rb" />
+        <option value="$PROJECT_DIR$/exercises/players/load_lesson.rb" />
+        <option value="$PROJECT_DIR$/spec/lib/exercise_spec.rb" />
+        <option value="$PROJECT_DIR$/spec/exercises/run_spec.rb" />
       </list>
     </option>
   </component>
@@ -743,7 +725,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.7425743" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.7425743" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24752475" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -789,41 +771,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/etc/template_method/name">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="15" selection-start="15" selection-end="15" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/template_method/1_simple/name">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="6" vertical-scroll-proportion="-0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/template_method/1_simple/1/instructions">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="36" vertical-scroll-proportion="-0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/lib/step_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="91" selection-start="157" selection-end="244" vertical-scroll-proportion="-2.3076923">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/etc/template_method/1_simple/1/class_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="98" vertical-scroll-proportion="-0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/step.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="25" selection-start="52" selection-end="52" vertical-scroll-proportion="-1.3846154">
@@ -859,27 +806,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exercises/players/load_lesson.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="19" selection-end="46" vertical-scroll-proportion="-0.46153846">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/exercises/load_lesson_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="26" selection-start="95" selection-end="95" vertical-scroll-proportion="-0.46153846">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/exercises/run_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="351" selection-end="351" vertical-scroll-proportion="-4.6153846">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/exercises/players/run.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="35" selection-start="53" selection-end="53" vertical-scroll-proportion="-0.46153846">
@@ -894,9 +820,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/exercises/styles.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="3" selection-start="259" selection-end="259" vertical-scroll-proportion="-10.615385">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercises/props.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="35" selection-start="155" selection-end="167" vertical-scroll-proportion="-0.9230769">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/template_method/1_simple/name">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="6" vertical-scroll-proportion="-0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/template_method/1_simple/1/instructions">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="19" selection-start="19" selection-end="19" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/etc/template_method/1_simple/1/class_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="30" selection-start="89" selection-end="89" vertical-scroll-proportion="-0.9230769">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/exercises/load_lesson_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="37" selection-start="1184" selection-end="1184" vertical-scroll-proportion="-13.384615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/spec/lib/exercise_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="15" selection-start="733" selection-end="733" vertical-scroll-proportion="0.6893617">
+        <state line="28" column="34" selection-start="788" selection-end="788" vertical-scroll-proportion="-12.923077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/exercises/run_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="6" selection-start="212" selection-end="525" vertical-scroll-proportion="-6.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercises/players/load_lesson.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="39" selection-start="240" selection-end="240" vertical-scroll-proportion="0.17872341">
           <folding />
         </state>
       </provider>

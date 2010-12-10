@@ -21,7 +21,7 @@ editor_input {
   height 500
 }
 
-text_section {
+test_section {
   width "49%"
   height "100%"
   border_width 1

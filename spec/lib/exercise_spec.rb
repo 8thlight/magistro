@@ -26,7 +26,7 @@ describe  Exercise do
   it "has steps" do
     exercise = Exercise.load_from(@dir_name)
     exercise.steps.size.should == 1
-    exercise.steps[0].description.should == "First we need to create a base class"
+    exercise.steps[0].instructions.should == "First we need to create a base class"
   end
 
 end

@@ -6,11 +6,11 @@ describe "Run Exercise" do
     @mouse = Limelight::Mouse.new
   end
   
-  it "runs tests and sets the output" do
-    production.current_exercise = Exercise.new(:spec_filename => "filename", :run_examples => false)
-    production.current_exercise.output_stream = StringIO.new("output")
-    @mouse.click(scene.find("run_button"))
-    scene.find("output").text.should == "output"
-  end
+#  it "runs tests and sets the output" do
+#    production.current_exercise = Exercise.new(:spec_filename => "filename", :run_examples => false)
+#    production.current_exercise.output_stream = StringIO.new("output")
+#    @mouse.click(scene.find("run_button"))
+#    scene.find("output").text.should == "output"
+#  end
   
 end

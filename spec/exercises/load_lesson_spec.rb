@@ -16,6 +16,7 @@ describe "Load Lesson" do
     @chooser.should_receive(:ask_chooser).with("Enter Lesson Directory").and_return(@directory)
     @mouse.click(scene.find("load_lesson_button"))
     production.current_exercise.directory.should == @directory
+    production.current_step.should_not be_nil
   end
 
 
@@ -29,6 +30,8 @@ describe "Load Lesson" do
     @mouse.click(scene.find("load_lesson_button"))
     scene.find("instructions").text.should == File.read(File.join(@directory, "1", "instructions"))
   end
+
+
 
   
 end

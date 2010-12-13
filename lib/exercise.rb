@@ -1,7 +1,7 @@
 require "step"
 class Exercise
   attr_accessor :directory
-  def self.load_from(dir) 
+  def self.load_from(dir)
     raise "blahblah is not a valid Exercise." unless File.exist?(dir)
     return new(dir)
   end

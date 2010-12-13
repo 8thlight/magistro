@@ -15,17 +15,6 @@ describe Step do
       @step.spec.should == File.read(@spec_filename)
     end
 
-    it "has an initially empty error stream" do
-      @step.error_stream.string.should == ""
-    end
-
-    it "has an initially empty output stream" do
-      @step.output_stream.string.should == ""
-    end
-    
-    it "has initial examples_should_be_run" do
-      @step.run_examples.should == false
-    end
 
     it "has instructions" do
       @step.instructions.should == "First we need to create a base class"
@@ -33,32 +22,24 @@ describe Step do
 
   end
   
-  
-  context "#run_specs" do
 
-    before do
-      @step.output_stream = StringIO.new "output"
-      @step.error_stream = StringIO.new "errors"
-      @step.run
-    end
-    
-    it "sends output steam and error stream to the spec runner" do
-      @step.options.should_not be_nil
-      @step.options.error_stream.should == @step.error_stream
-      @step.options.output_stream.should == @step.output_stream
-    end
-    
-    it "adds the filename to the file list" do
-      @step.options.files.should include(@spec_filename)
-    end
-    
-    it "sends options" do
-      Spec::Runner.options.should == @step.options
-    end
-        
+  context "#save_source" do
 
+    it "saves the source in the step directory" do
+      source_filename = File.join(@directory, "source.rb")
+      @step.save_source("contents")
+      IO.read(source_filename).should == "contents"
+      File.delete(source_filename)
+    end
+
+    it "replaces instead of appends" do
+      source_filename = File.join(@directory, "source.rb")
+      @step.save_source("contents")
+      @step.save_source("contents")
+      IO.read(source_filename).should == "contents"
+      File.delete(source_filename)
+    end
   end
-  
   
   
   

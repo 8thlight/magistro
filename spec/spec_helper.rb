@@ -12,3 +12,21 @@ $: << File.expand_path(File.dirname(__FILE__) + "/../components")
 Dir.glob(File.join("__resources", "gems", "gems", "**", "lib")).each do |dir|
   $: << dir
 end
+
+def click(scene_id)
+  @mouse = Limelight::Mouse.new
+  @mouse.click(scene.find(scene_id))
+end
+
+class MockStep
+  attr_accessor :source, :output_stream
+
+  def save_source(source)
+    @source = source
+  end
+
+  def spec_filename
+    return "test_spec.rb"
+  end
+
+end

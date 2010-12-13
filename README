@@ -1,0 +1,5 @@
+
+
+
+Refactoring Notes
+Make the rspec runner a seperate component that has its own presenter/runner

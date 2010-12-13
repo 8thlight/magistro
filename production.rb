@@ -3,7 +3,7 @@
 # You may define serveral hooks and initialization steps here.
 
 module Production
-  attr_accessor :current_exercise
+  attr_accessor :current_exercise, :current_step
 
 #  # Define this method if you want the production name to be different from the default, directory name.
 #  def name

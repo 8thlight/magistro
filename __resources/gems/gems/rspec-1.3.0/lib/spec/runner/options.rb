@@ -130,6 +130,7 @@ module Spec
             ['spec','lib'].each do |dir|
               add_dir_from_project_root_to_load_path(dir)
             end
+            p files_to_load
             runner.load_files(files_to_load)
             @files_loaded = true
           end

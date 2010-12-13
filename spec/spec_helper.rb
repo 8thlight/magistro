@@ -19,7 +19,7 @@ def click(scene_id)
 end
 
 class MockStep
-  attr_accessor :source, :output_stream
+  attr_accessor :source, :output_stream, :error_stream
 
   def save_source(source)
     @source = source

@@ -11,9 +11,17 @@ editor {
 }
 
 tests {
-  background_color "ECECEC"
+  background_color "FF0300"
+  secondary_background_color "B1212B"
+  gradient :on
+  gradient_angle 90
+  gradient_penetration 100
   width "100%"
   height "35%"  
+  rounded_corner_radius "10"
+  border_width 4
+  border_color "2A4765"
+  padding 10
 }
 
 editor_input {
@@ -22,10 +30,13 @@ editor_input {
 }
 
 test_section {
-  width "49%"
-  height "100%"
-  border_width 1
   padding 10
+  width "49%"
+  height "88%"
+  rounded_corner_radius "10"
+  border_width 4
+  border_color "2A4765"
+  background_color "F8F6EA"
 }
 
 tests_options {
@@ -35,10 +46,10 @@ tests_options {
 
 failure_count {
   width "100%"
-  height "20%"
+  height "10%"
 }
 
 out {
   width "100%"
-  height "80%"
+  height "90%"
 }

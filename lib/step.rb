@@ -1,18 +1,17 @@
-
-
+require "utils/file_io"
+require "exercise"
 class Step
-
+  attr_reader :directory
   def initialize(options = {})
     @directory = File.expand_path(options[:directory])
   end
-
-  def read(file)
-    File.read(File.join(@directory, file))
+  
+  def exercise
+    return Exercise.new(File.expand_path(File.join(@directory, "../")))
   end
 
   def instructions
-    file = "instructions"
-    read(file)
+    return Utils::FileIO.read(@directory, "instructions")
   end
 
   def spec_filename
@@ -21,24 +20,7 @@ class Step
   end
 
   def spec
-    read(File.basename(spec_filename))
-  end
-
-  def save_source(contents)
-    write_file("source.rb", contents)
-  end
-
-  def source
-    read("source.rb")
-  end
-
-  private #################
-
-
-  def write_file(filename, contents)
-    filename = File.join(@directory, filename)
-    File.delete(filename) if File.exist?(filename)
-    File.open(filename, 'a') {|file| file.write(contents)}
+    Utils::FileIO.read(@directory, File.basename(spec_filename))
   end
 
 end

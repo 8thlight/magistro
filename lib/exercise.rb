@@ -1,17 +1,16 @@
+require "utils/file_io"
 require "step"
+
 class Exercise
   attr_accessor :directory
-  def self.load_from(dir)
-    raise "blahblah is not a valid Exercise." unless File.exist?(dir)
-    return new(dir)
-  end
 
   def initialize(dir)
+    raise "#{dir} is not a valid Exercise." unless File.exist?(dir)
     @directory = dir
   end
 
   def name
-    return File.read(File.join(@directory, "name"))
+    return Utils::FileIO.read(@directory, "name")
   end
 
   def steps
@@ -22,5 +21,15 @@ class Exercise
     end
     return steps
   end
+  
+  def save_source(contents)
+    Utils::FileIO.write_file(@directory, "source.rb", contents)
+  end
+
+  def source
+    Utils::FileIO.read(@directory, "source.rb")
+  end
+  
+  
 end
 

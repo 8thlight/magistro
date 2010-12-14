@@ -19,7 +19,7 @@ class StepRunner
 
   def run
     @test_space = TestSpace.new
-    @test_space.module_eval(@step.source)
+    @test_space.module_eval(@step.exercise.source)
     
     @test_space.const_set("REPORTER", @reporter)
     @test_space.module_eval("require \"rspec/matchers\"")

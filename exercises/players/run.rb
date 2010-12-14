@@ -1,13 +1,9 @@
-require "rspec_runner"
+require "step_runner"
 on_mouse_clicked do
   contents = scene.find('editor_input').text
   production.current_step.save_source(contents)
-  runner = RspecRunner.new(:filename => production.current_step.spec_filename)
+  runner =  StepRunner.new(production.current_step)
   runner.run
-  if runner.output_stream.string.empty?
-    scene.find("output").text = runner.error_stream.string
-  else
-    scene.find("output").text = runner.output_stream.string
-  end
-
+  scene.find("failure_count").text = "#{runner.failed_count} failure"
+  scene.find("output").text = runner.output
 end

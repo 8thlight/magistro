@@ -2,8 +2,8 @@ require 'rubygems'
 
 task :spec do
   gem 'rspec'
-  require 'spec/rake/spectask'
+  require 'rspec/core/rake_task'
 
-  Spec::Rake::SpecTask.new(:all_specs){|t| t.spec_files = FileList['spec/**/*.rb']}
+  RSpec::Core::RakeTask.new(:all_specs){|t| t.spec_files = FileList['spec/**/*.rb']}
   Rake::Task[:all_specs].invoke
 end

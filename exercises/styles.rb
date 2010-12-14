@@ -32,3 +32,13 @@ tests_options {
   width "100%"
   border_color :red
 }
+
+failure_count {
+  width "100%"
+  height "20%"
+}
+
+out {
+  width "100%"
+  height "80%"
+}

@@ -5,7 +5,7 @@ describe "Chooser" do
   before do
     @directory = File.expand_path(File.join(File.dirname(__FILE__), "/../../etc/template_method/1_simple"))
     @path = mock('path', :get_absolute_path => File.join(@directory))
-    @jchooser = mock("JFileChooser", :null_object => true, :get_selected_file => @path, :show_open_dialog => Java::javax::swing::JFileChooser::APPROVE_OPTION)
+    @jchooser = mock("JFileChooser", :get_selected_file => @path, :show_open_dialog => Java::javax::swing::JFileChooser::APPROVE_OPTION).as_null_object
     Java::javax::swing::JFileChooser.stub!(:new).and_return(@jchooser)
     @chooser = DirectoryChooser.new
   end

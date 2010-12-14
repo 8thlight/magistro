@@ -33,7 +33,7 @@ describe Step do
     end
 
     it "replaces instead of appends" do
-      source_filename = File.join(@directory, "source.rb")
+      source_filename = File.join(@directory,  "source.rb")
       @step.save_source("contents")
       @step.save_source("contents")
       IO.read(source_filename).should == "contents"
@@ -41,12 +41,17 @@ describe Step do
     end
   end
 
-  context "#spec_helper" do
-    it "has the right filename" do
-#      @step.spec_helper_filenmae.should == File.expand_path(File.join(@directory, "spec_helper.rb"))
+  context "#source" do
+
+    it "reads the source.rb file" do
+      filename = File.join(@directory, "source.rb")
+      File.delete(filename) if File.exist?(filename) 
+      source_contents = "class A; end;"
+      File.open(File.join(@directory, "source.rb"), 'a') {|file| file.write(source_contents)}
+      @step.source.should == source_contents
+
     end
+
   end
-  
-  
-  
+
 end

@@ -1,3 +1,4 @@
 *.swp
 .bundle
 .rvmrc
+./etc/template_method/1_simple/1/source.rb

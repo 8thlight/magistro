@@ -1,40 +1,35 @@
 require File.expand_path(File.dirname(__FILE__) + "/../spec_helper")
-require "rspec_runner"
 
 describe "Run Exercise" do
 
   uses_limelight :scene => "exercises", :hidden => true
   before do 
-    @mouse = Limelight::Mouse.new
-    @runner = mock("RspecRunner", :run => nil, :output_stream => StringIO.new("...F"))
-    production.current_step = MockStep.new
-    RspecRunner.stub!(:new).and_return(@runner)
+    step = mock(Step, :save_source => nil)
+    @step_runner = mock(StepRunner, :run => nil, :failed_count => 1, :example_count => 2, :output => "put")
+    production.current_step = step
+    StepRunner.stub!(:new).and_return(@step_runner)
   end
 
   it "saves the editor section to a file" do
+    production.current_step.should_receive(:save_source).with("class A; end;")
     scene.find("editor_input").text = "class A; end;"
     click "run_button"
-    production.current_step.source.should == "class A; end;"
   end
-
-  it "runs the exercises step" do
-    RspecRunner.should_receive(:new).with(:filename => production.current_step.spec_filename).and_return(@runner)    
-    @runner.should_receive(:run)
+  
+  it "runs the spec" do
+    StepRunner.should_receive(:new).with(production.current_step).and_return(@step_runner)
+    @step_runner.should_receive(:run)
     click "run_button"
   end
 
   it "sets the output to the screen" do
-    @runner.should_receive(:output_stream).and_return(StringIO.new("...F"))
     click "run_button"
-    scene.find("output").text.should == "...F"
+    scene.find("failure_count").text.should == "1 failure"
   end
-
-  it "sets the error message to the screen." do
-    @runner.should_receive(:output_stream).and_return(StringIO.new(""))
-    @runner.should_receive(:error_stream).and_return(StringIO.new("you miss-spelled"))
-
+  
+  it "sets the output to the tests output" do
     click "run_button"
-    scene.find("output").text.should == "you miss-spelled"
+    scene.find("output").text.should == "put"    
   end
   
 end

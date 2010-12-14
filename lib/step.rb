@@ -1,4 +1,4 @@
-require "spec"
+
 
 class Step
 
@@ -25,9 +25,20 @@ class Step
   end
 
   def save_source(contents)
-    filename = File.join(@directory, "source.rb")
+    write_file("source.rb", contents)
+  end
+
+  def source
+    read("source.rb")
+  end
+
+  private #################
+
+
+  def write_file(filename, contents)
+    filename = File.join(@directory, filename)
     File.delete(filename) if File.exist?(filename)
-    File.open(filename, 'a') {|file| file.write(contents)}    
+    File.open(filename, 'a') {|file| file.write(contents)}
   end
 
 end

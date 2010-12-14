@@ -10,6 +10,12 @@ tests(:id => "tests"){
   tests_options {
     button :players => 'run', :text => 'Run Tests', :id => "run_button"
   }
-  test_section :id => "output"
+
+  test_section(:id => "output_area") {
+    failure_count :id => "failure_count"
+    out :id => "output"
+  }
+
   test_section  :vertical_scrollbar => 'on', :horizontal_scrollbar => 'off', :id => "test_source"
+
 }

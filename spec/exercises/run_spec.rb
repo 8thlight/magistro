@@ -5,7 +5,9 @@ describe "Run Exercise" do
 
   uses_limelight :scene => "exercises", :hidden => true
   before do 
-    step = mock(Step, :save_source => nil)
+    exercise = mock('exercise', :save_source => nil)
+    step = mock(Step, :exercise => exercise)
+    
     @step_runner = mock(StepRunner, :run => nil, :output => "put")
     production.current_step = step
     StepRunner.stub!(:new).and_return(@step_runner)
@@ -13,11 +15,11 @@ describe "Run Exercise" do
   
   context "passing" do
     before do
-      @step_runner.stub(:failed_count).and_return(0)
+      @step_runner.stub!(:failed_count).and_return(0)
     end
     
     it "saves the editor section to a file" do
-      production.current_step.should_receive(:save_source).with("class A; end;")
+      production.current_step.exercise.should_receive(:save_source).with("class A; end;")
       scene.find("editor_input").text = "class A; end;"
       click "run_button"
     end
@@ -48,7 +50,7 @@ describe "Run Exercise" do
   
   context "failing" do
     before do
-      @step_runner.stub(:failed_count).and_return(2)
+      @step_runner.stub(:failed_count).any_number_of_times.and_return(2)
     end
   
     it "sets the output to the screen" do

@@ -15,7 +15,6 @@ tests(:id => "tests"){
     failure_count :id => "failure_count"
     out :id => "output"
   }
-
   test_section :id => "test_source"
 
 }

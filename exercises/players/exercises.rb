@@ -1,8 +1,18 @@
 require File.expand_path(File.dirname(__FILE__) + "/../../lib/observer")
 
-
 on_scene_opened do
+  
   Observer.on(:run) do |options|
+    scene = options[:scene]
+    step = scene.production.current_step
+    contents = scene.find('editor_input').text
+    step.exercise.save_source(contents)
+    runner =  scene.production.step_runner_factory.new_runner(step)
+    runner.run
+    Observer.notify(:run_update, {:runner => runner, :scene => scene, :step => step})
+  end
+  
+  Observer.on(:run_update) do |options|
     runner = options[:runner]
     scene = options[:scene]
 
@@ -16,7 +26,7 @@ on_scene_opened do
     end
   end
   
-  Observer.on(:run) do |options|
+  Observer.on(:run_update) do |options|
     runner = options[:runner]
     scene = options[:scene]
     
@@ -24,7 +34,7 @@ on_scene_opened do
     scene.find("output").text = runner.output
   end
   
-  Observer.on([:run, :load_step]) do |options|
+  Observer.on([:run_update, :load_step]) do |options|
     scene  = options[:scene]
     step   = options[:step]
     

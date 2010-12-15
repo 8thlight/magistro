@@ -5,6 +5,6 @@ on_mouse_clicked do
   runner =  production.step_runner_factory.new_runner(production.current_step)
   runner.run
 
-  options = {:runner => runner, :scene => scene, :step => production.current_step}
+  options = {:scene => scene, :step => production.current_step}
   Observer.notify(:run, options)
 end

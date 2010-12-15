@@ -14,4 +14,8 @@ class Observer
     @@observers[action_name].each {|observer| observer.call(*args)}
   end
   
+  def self.clear_observers
+    @@observers = {}
+  end
+  
 end

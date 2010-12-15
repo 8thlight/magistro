@@ -22,6 +22,11 @@ module Production
 #  # This is a good place to require needed files and instantiate objects in the business layer.
  def production_opening
    $: << File.expand_path(File.dirname(__FILE__) + "/lib")
+   $: << File.expand_path(File.dirname(__FILE__) + "/gems/diff-lcs-1.1.2/lib")
+   $: << File.expand_path(File.dirname(__FILE__) + "/gems/rspec-2.3.0/lib")
+   $: << File.expand_path(File.dirname(__FILE__) + "/gems/rspec-core-2.3.0/lib")
+   $: << File.expand_path(File.dirname(__FILE__) + "/gems/rspec-expectations-2.3.0/lib")
+   $: << File.expand_path(File.dirname(__FILE__) + "/gems/rspec-mocks-2.3.0/lib")
    $: << File.expand_path(File.dirname(__FILE__) + "/components")
    require "step_runner_factory"
    @step_runner_factory = StepRunnerFactory.new

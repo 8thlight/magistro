@@ -1,32 +1,29 @@
 require File.expand_path(File.dirname(__FILE__) + "/../spec_helper")
+require "mocks/step_runner"
+require "mocks/step_runner_factory"
 require "step"
 require "step_runner"
 describe "Run Exercise" do
 
   uses_limelight :scene => "exercises", :hidden => true
   before do 
-    @exercise = mock('exercise', :save_source => nil, :next_step => nil)
-    @step = mock(Step, :exercise => @exercise, :directory => 'dir')
-    @step_runner = mock(StepRunner, :run => nil, :output => "put", :step => @step, :failed_count => 0)
+    @step_directory = File.join(File.dirname(__FILE__), "/../../etc/template_method/1_simple/1")
+    @step = Step.new(:directory => @step_directory)
     production.current_step = @step
-    StepRunner.stub!(:new).and_return(@step_runner)
+    production.step_runner_factory = Mocks::StepRunnerFactory.new(:output => "put", :failed_count => 0)
   end
   
   context "passing" do
-    before do
-      @step_runner.stub!(:failed_count).and_return(0)
-    end
-    
     it "saves the editor section to a file" do
-      production.current_step.exercise.should_receive(:save_source).with("class A; end;")
-      scene.find("editor_input").text = "class A; end;"
+      source = "class A; end;"
+      scene.find("editor_input").text = source
       click "run_button"
+      @step.exercise.source.should == source
     end
   
     it "runs the spec" do
-      StepRunner.should_receive(:new).with(production.current_step).and_return(@step_runner)
-      @step_runner.should_receive(:run)
       click "run_button"
+      production.step_runner_factory.runner.ran?.should be_true
     end
 
     it "sets the output to the screen" do
@@ -49,7 +46,7 @@ describe "Run Exercise" do
   
   context "failing" do
     before do
-      @step_runner.stub(:failed_count).any_number_of_times.and_return(2)
+      production.step_runner_factory = Mocks::StepRunnerFactory.new(:output => "put", :failed_count => 2)
     end
   
     it "sets the output to the screen" do

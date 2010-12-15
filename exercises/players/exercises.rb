@@ -22,7 +22,7 @@ on_scene_opened do
     next_step = runner.step.exercise.next(runner.step)
     if  !next_step.nil? && runner.failed_count == 0
       next_button = Limelight::Prop.new(:name => "next_button", :players => "button", :text => "Next", :id => "step_#{next_step.directory}")
-      scene.find("tests_navigation").add(next_button)
+      scene.find("tests_navigation").add(next_button) if scene.find_by_name("next_button").empty?
     end
   end
   

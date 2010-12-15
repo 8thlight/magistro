@@ -23,8 +23,8 @@ module Production
  def production_opening
    $: << File.expand_path(File.dirname(__FILE__) + "/lib")
    $: << File.expand_path(File.dirname(__FILE__) + "/components")
-   require "step_runner"
-   @step_runner_factory = StepRunner
+   require "step_runner_factory"
+   @step_runner_factory = StepRunnerFactory.new
  end
 #
 #  # Hook #2.  Called after internal gems have been loaded and stages have been instantiated, yet before

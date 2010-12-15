@@ -47,6 +47,13 @@ describe "Run Exercise", "with next/previous" do
       click "step_#{@last_step.directory}"
       production.step_runner_factory.runner_count.should == 3    
     end
+    
+    it "removes the next if there is one and no next" do
+      production.current_step = @first_step
+      click "run_button"
+      click "step_#{@last_step.directory}"
+      scene.find("next_container").children.size.should == 0
+    end
   end
   
   context "previous" do
@@ -69,6 +76,13 @@ describe "Run Exercise", "with next/previous" do
       scene.find("test_source").text.should == @first_step.spec
       scene.find("instructions").text = @first_step.instructions
       production.current_step.should == @first_step
+    end
+    
+    it "removes the next if there is one and no next" do
+      production.current_step = @last_step
+      click "run_button"
+      click "step_#{@first_step.directory}"
+      scene.find("previous_container").children.size.should == 0
     end
   end
   

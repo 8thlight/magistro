@@ -39,13 +39,17 @@ on_scene_opened do
     step   = options[:step]
     
     previous_step = step.exercise.previous(step)
-    if  !previous_step.nil?
+    if  previous_step.nil?
+      scene.find("previous_container").remove_all
+    else
       previous_button = Limelight::Prop.new(:name => "previous_button", :players => "button navigate", :text => "Previous", :id => "step_#{previous_step.directory}")
       scene.find("previous_container").add(previous_button) if scene.find_by_name("previous_button").empty?
     end
 
     next_step = step.exercise.next(step)
-    if  !next_step.nil?
+    if next_step.nil?
+      scene.find("next_container").remove_all
+    else
       next_button = Limelight::Prop.new(:name => "next_button", :players => "button navigate", :text => "Next", :id => "step_#{next_step.directory}")
       scene.find("next_container").add(next_button) if scene.find_by_name("next_button").empty?
     end

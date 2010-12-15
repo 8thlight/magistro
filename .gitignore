@@ -1,4 +1,5 @@
 *.swp
 .bundle
 .rvmrc
+.DS_Store
 etc/template_method/1_simple/source.rb

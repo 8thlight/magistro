@@ -16,6 +16,6 @@ tests(:id => "tests"){
     out :id => "output"
   }
 
-  test_section  :vertical_scrollbar => 'on', :horizontal_scrollbar => 'off', :id => "test_source"
+  test_section :id => "test_source"
 
 }

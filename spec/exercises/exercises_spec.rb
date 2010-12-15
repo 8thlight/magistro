@@ -30,6 +30,12 @@ describe "Exercises Props scene" do
     it "has tests prop" do
       find_prop("tests")
     end
+
+    it "has test source prop" do
+      find_prop("test_source")
+      @prop.style.vertical_scrollbar.should == 'on'
+      @prop.style.horizontal_scrollbar.should == 'off'
+    end
     
     it "has save button" do
       find_prop("save_button")

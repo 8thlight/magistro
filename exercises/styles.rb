@@ -37,6 +37,7 @@ test_section {
   border_width 4
   border_color "2A4765"
   background_color "F8F6EA"
+  vertical_scrollbar 'on'
 }
 
 tests_options {

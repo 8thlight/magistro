@@ -40,9 +40,8 @@ test_section {
   vertical_scrollbar 'on'
 }
 
-tests_options {
+tests_navigation {
   width "100%"
-  border_color :red
 }
 
 failure_count {

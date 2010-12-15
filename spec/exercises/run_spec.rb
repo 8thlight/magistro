@@ -5,11 +5,10 @@ describe "Run Exercise" do
 
   uses_limelight :scene => "exercises", :hidden => true
   before do 
-    exercise = mock('exercise', :save_source => nil)
-    step = mock(Step, :exercise => exercise)
-    
-    @step_runner = mock(StepRunner, :run => nil, :output => "put")
-    production.current_step = step
+    @exercise = mock('exercise', :save_source => nil, :next_step => nil)
+    @step = mock(Step, :exercise => @exercise, :directory => 'dir')
+    @step_runner = mock(StepRunner, :run => nil, :output => "put", :step => @step, :failed_count => 0)
+    production.current_step = @step
     StepRunner.stub!(:new).and_return(@step_runner)
   end
   
@@ -64,8 +63,7 @@ describe "Run Exercise" do
       tests.style.background_color.should == "#ff0300ff"
       tests.style.secondary_background_color.should ==  "#b1212bff"
     end
-    
-    
   end
+  
   
 end

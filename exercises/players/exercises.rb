@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + "/run_observer")
  
 
 on_scene_opened do
-  change_background = Proc.new do |runner, scene|
+  RunObserver.on_run do |runner, scene|
     tests_prop = scene.find("tests")
     if runner.failed_count == 0
       tests_prop.style.background_color = "335003"
@@ -13,11 +13,17 @@ on_scene_opened do
     end
   end
   
-  udpate_output = Proc.new do |runner, scene|
+  RunObserver.on_run do |runner, scene|
     scene.find("failure_count").text = "#{runner.failed_count} failure"
     scene.find("output").text = runner.output
   end
   
-  RunObserver.register change_background
-  RunObserver.register udpate_output
+  RunObserver.on_run do |runner, scene|
+    next_step = runner.step.exercise.next(runner.step)
+    if  !next_step.nil? && runner.failed_count == 0
+      next_button = Limelight::Prop.new(:name => "next_button", :players => "button", :text => "Next", :id => "step_#{next_step.directory}")
+      scene.find("tests_navigation").add(next_button)
+    end
+  end
+  
 end

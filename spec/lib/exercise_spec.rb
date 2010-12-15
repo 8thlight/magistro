@@ -32,32 +32,64 @@ describe  Exercise do
   context "#save_source and #source" do
     before do
       @exercise = Exercise.new(@directory)
+      @source_filename = File.join(@directory, "source.rb")
+    end
+    
+    after do
+      File.delete(@source_filename) if File.exists?(@source_filename)
     end
     
     it "saves the source in the step directory" do
       source_filename = File.join(@directory, "source.rb")
       @exercise.save_source("contents")
-      IO.read(source_filename).should == "contents"
-      File.delete(source_filename)
+      IO.read(@source_filename).should == "contents"      
     end
 
     it "replaces instead of appends" do
-      source_filename = File.join(@directory,  "source.rb")
       @exercise.save_source("contents")
       @exercise.save_source("contents")
-      IO.read(source_filename).should == "contents"
-      File.delete(source_filename)
+      IO.read(@source_filename).should == "contents"
     end
 
     it "reads the source.rb file" do
-      filename = File.join(@directory, "source.rb")
-      File.delete(filename) if File.exist?(filename) 
+      File.delete(@source_filename) if File.exist?(@source_filename) 
       source_contents = "class A; end;"
-      File.open(File.join(@directory, "source.rb"), 'a') {|file| file.write(source_contents)}
+      File.open(@source_filename, 'a') {|file| file.write(source_contents)}
       @exercise.source.should == source_contents
-
     end
 
+  end
+  
+  context "step navigation" do
+    
+    before do
+      @exercise = Exercise.new(@directory)
+    end
+    
+    it "gets the next step" do
+      first_step = @exercise.steps.first
+      next_step = @exercise.next(first_step)
+      next_step.directory.should == File.expand_path(File.join(@directory, "2"))
+    end
+    
+    it "returns nil if there is no next step" do
+      last_step = @exercise.steps.last
+      next_step = @exercise.next(last_step)
+      next_step.should be_nil
+    end
+    
+    it "gets the previous step" do
+      last_step = @exercise.steps.last
+      previous_step = @exercise.previous(last_step)
+      previous_step.directory.should ==  File.expand_path(File.join(@directory, "1"))
+    end
+    
+    it "gets the previous step" do
+      first_step = @exercise.steps.first
+      previous_step = @exercise.previous(first_step)
+      previous_step.should be_nil
+    end
+    
   end
   
 

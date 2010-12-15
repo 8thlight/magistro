@@ -8,6 +8,8 @@ $PRODUCTION_PATH = File.expand_path(File.dirname(__FILE__) + "/../")
 
 $: << File.expand_path(File.dirname(__FILE__) + "/../lib")
 $: << File.expand_path(File.dirname(__FILE__) + "/../components")
+$: << File.expand_path(File.dirname(__FILE__) + "/")
+
 Dir.glob(File.join( "**", "lib")).each do |dir|
   $: << dir
 end

@@ -1,7 +1,7 @@
 class RunObserver
   @@observers = []
-  def self.register(observer)
-    @@observers << observer
+  def self.on_run(&block)
+    @@observers << block
   end
   
   def self.notify(fail_count, scene)

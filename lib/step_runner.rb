@@ -8,7 +8,7 @@ end
 
 
 class StepRunner
-  attr_accessor :test_space, :formatter
+  attr_accessor :test_space, :formatter, :step
   def initialize(step)
     @step = step
     @errors = StringIO.new("")

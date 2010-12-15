@@ -1,5 +1,8 @@
 teaching(:id => "teaching"){
-  button :players => "load_lesson", :id => "load_lesson_button", :text => "Load Lesson", :width => 150
+  top_nav {
+    top_nav_item :players => "button load_lesson", :id => "load_lesson_button", :text => "Load Lesson", :width => 150
+    top_nav_item :players => "button load_chapter", :id => "load_chapter_button", :text => "Chapter"
+  }
   instructions :id => "instructions"
 }
 

@@ -53,3 +53,12 @@ out {
   width "100%"
   height "90%"
 }
+
+top_nav {
+  width "100%"
+}
+
+instructions {
+  width "100%"
+  height "100%"
+}

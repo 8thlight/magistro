@@ -8,30 +8,24 @@ describe "Load Lesson" do
     @path = mock('path', :get_absolute_path => File.join(@directory))
     @chooser = mock("DirectoryChooser", :ask_chooser => @directory)
     DirectoryChooser.stub!(:new).and_return(@chooser)
-    @mouse = Limelight::Mouse.new
   end
-
 
   it "loads the file" do
     @chooser.should_receive(:ask_chooser).with("Enter Lesson Directory").and_return(@directory)
-    @mouse.click(scene.find("load_lesson_button"))
+    click("load_lesson_button")
     production.current_exercise.directory.should == @directory
     production.current_step.should_not be_nil
   end
 
-
   it "shows the source" do
     @chooser.should_receive(:ask_chooser).with("Enter Lesson Directory").and_return(@directory)
-    @mouse.click(scene.find("load_lesson_button"))
+    click("load_lesson_button")
     scene.find("test_source").text.should == File.read(File.join(@directory, "1", "class_spec.rb"))
   end
 
   it "shows the step instructions" do
-    @mouse.click(scene.find("load_lesson_button"))
+    click("load_lesson_button")
     scene.find("instructions").text.should == File.read(File.join(@directory, "1", "instructions"))
   end
-
-
-
   
 end

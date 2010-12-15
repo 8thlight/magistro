@@ -17,7 +17,7 @@ describe "Exercises Props scene" do
     
     it "has a load lesson button" do
       find_prop("load_lesson_button")
-      @prop.name.should == "button"
+      @prop.name.should == "top_nav_item"
       @prop.players.should include("load_lesson")
     end
   end

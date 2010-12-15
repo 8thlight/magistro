@@ -1,8 +1,4 @@
 module Mocks
-  class Step
-    
-    def method_name
-      
-    end
+  class Step    
   end
 end

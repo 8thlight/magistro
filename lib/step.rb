@@ -22,5 +22,9 @@ class Step
   def spec
     Utils::FileIO.read(@directory, File.basename(spec_filename))
   end
+  
+  def ==(step)
+    return @directory == step.directory
+  end
 
 end

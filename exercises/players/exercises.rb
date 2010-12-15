@@ -1,4 +1,5 @@
-require "observer"
+require File.expand_path(File.dirname(__FILE__) + "/../../lib/observer")
+
 
 on_scene_opened do
   Observer.on(:run) do |options|

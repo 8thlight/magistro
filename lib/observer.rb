@@ -1,3 +1,4 @@
+
 class Observer
   @@observers = {}
   def self.on(action_names, &block)

@@ -13,9 +13,5 @@ class Observer
     raise "No events are registered for #{action_name}." if @@observers[action_name].nil? || @@observers[action_name].empty?
     @@observers[action_name].each {|observer| observer.call(*args)}
   end
-  
-  def self.clear_observers
-    @@observers = {}
-  end
-  
+    
 end

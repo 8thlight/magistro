@@ -5,8 +5,8 @@ describe Step do
 
   before do
     @directory = File.join(File.dirname(__FILE__), "/../../etc/template_method/1_simple/1")
-    @spec_filename = File.expand_path(File.join(@directory, "class_spec.rb"))
-    @step = Step.new(:directory => @directory)
+    @spec_filename = File.expand_path(File.join(@directory, "spec"))
+    @step = Step.new( @directory)
   end
   
   it "has a spec contents" do
@@ -22,7 +22,7 @@ describe Step do
   end
   
   it "is equal" do
-    same_step = Step.new(:directory => @directory)
+    same_step = Step.new(@directory)
     @step.should == same_step
   end
   

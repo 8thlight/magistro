@@ -15,3 +15,4 @@ stage "Main" do
   location [200, 25]
   size [800, 800]
 end
+

@@ -8,7 +8,6 @@ teaching(:id => "teaching"){
 
 editor(:id => "editor") {
   editor_input :players => "text_area", :id => "editor_input"
-  button :players => 'save', :text => 'Save', :id => "save_button"
 }
 
 tests(:id => "tests"){

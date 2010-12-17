@@ -5,7 +5,7 @@ describe StepRunner do
 
   before do
     @step_directory = File.join(File.dirname(__FILE__), "/../../etc/template_method/1_simple/1")
-    @step = Step.new(:directory => @step_directory)
+    @step = Step.new(@step_directory)
     @step.exercise.save_source("class Base;end;")
     @step_runner = StepRunner.new(@step)
   end

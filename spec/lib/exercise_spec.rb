@@ -10,7 +10,7 @@ describe  Exercise do
   end
 
   it "validates directory was choosen" do
-    lambda{Exercise.new("blahblah")}.should raise_error("blahblah is not a valid Exercise.")
+    lambda{Exercise.new("blahblah")}.should raise_error("blahblah is not valid.")
   end
 
   it "creates Exercise from a directory" do

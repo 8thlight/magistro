@@ -36,13 +36,7 @@ describe "Exercises Props scene" do
       @prop.style.vertical_scrollbar.should == 'on'
       @prop.style.horizontal_scrollbar.should == 'off'
     end
-    
-    it "has save button" do
-      find_prop("save_button")
-      @prop.name.should == "button"
-      @prop.players.should include("save")
-    end
-    
+        
     it "has run specs button" do
       find_prop("run_button")
       @prop.name.should == "button"

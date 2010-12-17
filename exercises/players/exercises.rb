@@ -4,6 +4,7 @@ on_scene_opened do
   
   Observer.on(:run) do |options|
     scene = options[:scene]
+    
     step = scene.production.current_step
     contents = scene.find('editor_input').text
     step.exercise.save_source(contents)
@@ -39,17 +40,15 @@ on_scene_opened do
     step   = options[:step]
     
     previous_step = step.exercise.previous(step)
-    if  previous_step.nil?
-      scene.find("previous_container").remove_all
-    else
+    scene.find("previous_container").remove_all
+    if  !previous_step.nil?
       previous_button = Limelight::Prop.new(:name => "previous_button", :players => "button navigate", :text => "Previous", :id => "step_#{previous_step.directory}")
       scene.find("previous_container").add(previous_button) if scene.find_by_name("previous_button").empty?
     end
 
     next_step = step.exercise.next(step)
-    if next_step.nil?
-      scene.find("next_container").remove_all
-    else
+    scene.find("next_container").remove_all
+    if !next_step.nil?
       next_button = Limelight::Prop.new(:name => "next_button", :players => "button navigate", :text => "Next", :id => "step_#{next_step.directory}")
       scene.find("next_container").add(next_button) if scene.find_by_name("next_button").empty?
     end

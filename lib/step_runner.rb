@@ -6,7 +6,6 @@ require "rspec/core/reporter"
 class TestSpace < Module
 end
 
-
 class StepRunner
   attr_accessor :test_space, :formatter, :step
   def initialize(step)

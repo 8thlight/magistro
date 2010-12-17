@@ -14,9 +14,9 @@ describe "Run Exercise", "with next/previous" do
     production.step_runner_factory = Mocks::StepRunnerFactory.new(:failed_count => 0)
     
     @first_step_directory = File.join(File.dirname(__FILE__), "/../../etc/template_method/1_simple/1")
-    @first_step = Step.new(:directory => @first_step_directory)
+    @first_step = Step.new(@first_step_directory)
     @last_step_directory = File.join(File.dirname(__FILE__), "/../../etc/template_method/1_simple/2")
-    @last_step = Step.new(:directory => @last_step_directory)
+    @last_step = Step.new(@last_step_directory)
   end
   
   context "NEXT" do

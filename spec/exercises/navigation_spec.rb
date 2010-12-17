@@ -44,8 +44,8 @@ describe "Run Exercise", "with next/previous" do
     it "navigation runs the spec" do
       production.current_step = @first_step
       click "run_button"
-      click "step_#{@last_step.directory}"
-      production.step_runner_factory.runner_count.should == 3    
+      click "step_#{@last_step.directory}"  
+      production.step_runner_factory.runner_count.should == 2    
     end
     
     it "removes the next if there is one and no next" do

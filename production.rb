@@ -2,6 +2,13 @@
 # The containing production will acquire all the behavior defined in this module.
 # You may define serveral hooks and initialization steps here.
 
+
+# the following line should be moved into limelight somehow
+$:.concat(Dir[File.join(File.dirname(__FILE__), 'gems/*/*/gems/*/lib')])
+# also, the line that makes it work is `bundle install --path=gems`.. well,
+# sort of. i mean, theres more to it.. ie, local gems vs deployable gems etc
+
+
 module Production
   attr_accessor :current_lesson, :current_exercise, :current_step, :step_runner_factory
 
@@ -21,13 +28,8 @@ module Production
 #  # Hook #1.  Called when the production is newly created, before any loading has been done.
 #  # This is a good place to require needed files and instantiate objects in the business layer.
  def production_opening
-   $: << File.expand_path(File.dirname(__FILE__) + "/lib")
-   $: << File.expand_path(File.dirname(__FILE__) + "/gems/diff-lcs-1.1.2/lib")
-   $: << File.expand_path(File.dirname(__FILE__) + "/gems/rspec-2.3.0/lib")
-   $: << File.expand_path(File.dirname(__FILE__) + "/gems/rspec-core-2.3.0/lib")
-   $: << File.expand_path(File.dirname(__FILE__) + "/gems/rspec-expectations-2.3.0/lib")
-   $: << File.expand_path(File.dirname(__FILE__) + "/gems/rspec-mocks-2.3.0/lib")
-   $: << File.expand_path(File.dirname(__FILE__) + "/components")
+   $: << File.expand_path(File.join(File.dirname(__FILE__), "lib"))
+   $: << File.expand_path(File.join(File.dirname(__FILE__), "components"))
    require "step_runner_factory"
    @step_runner_factory = StepRunnerFactory.new
  end

@@ -9,6 +9,11 @@ describe "Exercises Props scene" do
     @prop.should_not be_nil
   end
   
+  it "loads default magistro root" do
+    production.production_opening
+    production.magistro_root.should == File.expand_path("~/.magistro")
+  end
+  
   context "teaching" do
     
     it "displays teaching area" do
@@ -44,4 +49,6 @@ describe "Exercises Props scene" do
     end
     
   end
+  
+  
 end

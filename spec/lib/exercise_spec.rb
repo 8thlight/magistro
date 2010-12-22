@@ -5,10 +5,7 @@ require 'fileutils'
 
 describe  Exercise do
 
-  before(:each) do
-    on_first_step
-    @directory = File.join(File.dirname(__FILE__), "/../../etc/template_method/1_simple")
-  end
+  before { on_first_step }
 
   it "creates Exercise from a directory" do
     @exercise.should_not be_nil
@@ -29,7 +26,7 @@ describe  Exercise do
   
   context "#save_source and #source" do
     before do
-      @source_filename = File.join(@directory, "source.rb")
+      @source_filename = File.join(@lesson.options[:magistro_root], "source.rb")
     end
     
     after do
@@ -38,6 +35,7 @@ describe  Exercise do
     
     it "saves the source in the step directory" do
       @exercise.save_source("contents")
+      File.read(@source_filename).should == "contents"
       @exercise.source.should == "contents"
     end
 

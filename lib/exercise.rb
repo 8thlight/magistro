@@ -4,7 +4,6 @@ require "step"
 
 class Exercise < DirectoryModel
   include StepNavigation
-  
   attr_accessor :path
   
   def initialize(filename, options = {})
@@ -15,7 +14,7 @@ class Exercise < DirectoryModel
   end
   
   def steps
-    return @reader.collection([lesson.path, @path], Step, @reader, self)
+    return @reader.collection([lesson.path, @path], Step, {:reader => @reader, :parent => self})
   end
   
   def lesson

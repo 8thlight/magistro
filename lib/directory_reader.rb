@@ -9,11 +9,11 @@ class DirectoryReader
     return File.read(File.join(path))
   end
   
-  def collection(path, klass, reader, parent)
+  def collection(path, klass, options = {})
     collection = []
     Dir.entries(File.join(path)).sort.each do |entry|
       filename = File.join(path, entry)
-      collection << klass.new(entry, {:parent => parent, :reader => reader}) if File.directory?(filename) && ![".", "..", "chapter"].include?(entry)
+      collection << klass.new(entry, options) if File.directory?(filename) && ![".", "..", "chapter"].include?(entry)
     end
     return collection
   end

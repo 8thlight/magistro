@@ -22,7 +22,7 @@ end
 
 def on_first_step
   require "lesson"
-  @lesson = Lesson.new(File.join(File.dirname(__FILE__), "/../etc/template_method"))
+  @lesson = Lesson.new(File.join(File.dirname(__FILE__), "/../etc/template_method"), {:magistro_root => "."})
   @exercise = @lesson.exercises.first
   @step = @exercise.steps.first
   production.current_lesson = @lesson

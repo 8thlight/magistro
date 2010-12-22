@@ -2,7 +2,7 @@ require "directory_model"
 require "exercise"
 
 class Step < DirectoryModel
-  
+  attr_accessor :path
   def initialize(filename, options = {})
     @path = filename
     @reader = options[:reader]

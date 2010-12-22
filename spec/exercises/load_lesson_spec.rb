@@ -13,7 +13,7 @@ describe "Load Lesson" do
 
   it "loads the file" do
     @chooser.should_receive(:ask_chooser).with("Enter Lesson Directory").and_return(@directory)
-    click("load_lesson_button")
+    click "load_lesson_button"
     production.current_lesson.path.should == @directory
     production.current_exercise.path.should == "1_simple"
     production.current_step.position.should == 1
@@ -21,13 +21,19 @@ describe "Load Lesson" do
 
   it "shows the source" do
     @chooser.should_receive(:ask_chooser).with("Enter Lesson Directory").and_return(@directory)
-    click("load_lesson_button")
+    click "load_lesson_button"
     scene.find("test_source").text.should == File.read(File.join(@exercise_directory, "1", "spec"))
   end
 
   it "shows the step instructions" do
-    click("load_lesson_button")
+    click "load_lesson_button"
     scene.find("instructions").text.should == File.read(File.join(@exercise_directory, "1", "instructions"))
+  end
+  
+  it "loads the magistro root" do
+    production.magistro_root = "."
+    click "load_lesson_button"
+    production.current_lesson.options[:magistro_root].should == "."
   end
   
 end

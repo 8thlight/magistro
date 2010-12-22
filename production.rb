@@ -3,7 +3,7 @@
 # You may define serveral hooks and initialization steps here.
 
 module Production
-  attr_accessor :current_lesson, :current_exercise, :current_step, :step_runner_factory, :source_root
+  attr_accessor :current_lesson, :current_exercise, :current_step, :step_runner_factory, :magistro_root
 
 #  # Define this method if you want the production name to be different from the default, directory name.
 #  def name
@@ -30,6 +30,7 @@ module Production
    $: << File.expand_path(File.dirname(__FILE__) + "/components")
    require "step_runner_factory"
    @step_runner_factory = StepRunnerFactory.new
+   @magistro_root = File.expand_path("~/.magistro")
  end
 #
 #  # Hook #2.  Called after internal gems have been loaded and stages have been instantiated, yet before

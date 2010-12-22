@@ -1,9 +1,4 @@
 class DirectoryReader
-  attr_accessor :source_name
-  
-  def initialize(directory)
-    @name = File.expand_path(directory)
-  end
   
   def read(path)
     return File.read(File.join(path))

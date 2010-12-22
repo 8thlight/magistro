@@ -1,6 +1,4 @@
-require "directory_model"
-
-class Chapter < DirectoryModel
+class Chapter
   attr_accessor :path
   def initialize(path, options = {})
     @path = path

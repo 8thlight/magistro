@@ -1,16 +1,16 @@
-require "directory_model"
 require "step_navigation"
 require "step"
 
-class Exercise < DirectoryModel
+class Exercise
   include StepNavigation
-  attr_accessor :path
+  attr_accessor :path, :reader
   
   def initialize(filename, options = {})
     @parent = options[:parent]
+    @reader = options[:reader]
+    @magistro_root = options[:magistro_root]
     @path = filename
     @directory = File.expand_path(File.join(lesson.path, filename))
-    @reader = options[:reader]
   end
   
   def steps
@@ -22,8 +22,8 @@ class Exercise < DirectoryModel
   end
   
   def save_source(contents)
-    create_folder([magistro_folder])
-    create_folder([magistro_folder, lesson.name])
+    create_folder([@magistro_root])
+    create_folder([@magistro_root, lesson.name])
     create_folder(source_path)
     filename = File.join(source_path, "source")
     File.delete(filename) if File.exist?(filename)
@@ -41,11 +41,7 @@ class Exercise < DirectoryModel
   private #############
   
   def source_path
-    return [magistro_folder, lesson.name, @path]
-  end
-  
-  def magistro_folder
-    return File.expand_path("~/.magistro")
+    return [@magistro_root, lesson.name, @path]
   end
   
   def create_folder(path)

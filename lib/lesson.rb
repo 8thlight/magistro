@@ -1,13 +1,13 @@
-require "directory_model"
+require "directory_reader"
 require "chapter"
 require "exercise"
 
-class Lesson < DirectoryModel
-  attr_accessor :path, :options
+class Lesson
+  attr_accessor :path, :options, :reade
   
   def initialize(path, options = {})
     @path = path
-    @reader = DirectoryReader.new(@path)
+    @reader = DirectoryReader.new
     @options = options
   end
   

@@ -1,8 +1,8 @@
-require "directory_model"
 require "exercise"
 
-class Step < DirectoryModel
+class Step
   attr_accessor :path
+
   def initialize(filename, options = {})
     @path = filename
     @reader = options[:reader]
@@ -19,7 +19,7 @@ class Step < DirectoryModel
   
   def ==(other)
     return false unless position == other.position
-    return false unless exercise.reader.source_name == other.exercise.reader.source_name 
+    return false unless exercise.path == other.exercise.path 
     return true
   end
   

@@ -14,9 +14,9 @@ describe "Load Lesson" do
   it "loads the file" do
     @chooser.should_receive(:ask_chooser).with("Enter Lesson Directory").and_return(@directory)
     click("load_lesson_button")
-    production.current_lesson.directory.should == @directory
-    production.current_exercise.directory.should == @exercise_directory
-    production.current_step.should_not be_nil
+    production.current_lesson.path.should == @directory
+    production.current_exercise.path.should == "1_simple"
+    production.current_step.position.should == 1
   end
 
   it "shows the source" do

@@ -11,11 +11,9 @@ describe "Run Exercise", "with next/previous" do
 
   before do
     production.step_runner_factory = Mocks::StepRunnerFactory.new(:failed_count => 0)
-    
-    @first_step_directory = File.join(File.dirname(__FILE__), "/../../etc/template_method/1_simple/1")
-    @first_step = Step.new(@first_step_directory)
-    @last_step_directory = File.join(File.dirname(__FILE__), "/../../etc/template_method/1_simple/2")
-    @last_step = Step.new(@last_step_directory)
+    on_first_step
+    @first_step = @exercise.steps.first
+    @last_step = @exercise.steps.last
   end
   
   context "NEXT" do
@@ -34,7 +32,7 @@ describe "Run Exercise", "with next/previous" do
     it "next button loads the spec" do
       production.current_step = @first_step
       click "run_button"
-      click "step_#{@last_step.directory}"
+      click "step_#{@last_step.position}"
       scene.find("test_source").text.should == @last_step.spec
       scene.find("instructions").text = @last_step.instructions
       production.current_step.should == @last_step
@@ -43,14 +41,14 @@ describe "Run Exercise", "with next/previous" do
     it "navigation runs the spec" do
       production.current_step = @first_step
       click "run_button"
-      click "step_#{@last_step.directory}"  
+      click "step_#{@last_step.position}"  
       production.step_runner_factory.runner_count.should == 2    
     end
     
     it "removes the next if there is one and no next" do
       production.current_step = @first_step
       click "run_button"
-      click "step_#{@last_step.directory}"
+      click "step_#{@last_step.position}"
       scene.find("next_container").children.size.should == 0
     end
   end
@@ -71,7 +69,7 @@ describe "Run Exercise", "with next/previous" do
     it "previous button loads the spec" do
       production.current_step = @last_step
       click "run_button"
-      click "step_#{@first_step.directory}"
+      click "step_#{@first_step.position}"
       scene.find("test_source").text.should == @first_step.spec
       scene.find("instructions").text = @first_step.instructions
       production.current_step.should == @first_step
@@ -80,7 +78,7 @@ describe "Run Exercise", "with next/previous" do
     it "removes the next if there is one and no next" do
       production.current_step = @last_step
       click "run_button"
-      click "step_#{@first_step.directory}"
+      click "step_#{@first_step.position}"
       scene.find("previous_container").children.size.should == 0
     end
   end

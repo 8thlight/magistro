@@ -4,12 +4,13 @@ require "chapter"
 describe Chapter do
   
   before do
+    on_first_step
     @directory = File.expand_path(File.join(File.dirname(__FILE__), "/../../etc/template_method/chapter"))
-    @chapter = Chapter.new(@directory)
+    @chapter = @lesson.chapter
   end
   
   it "chapter from the directives" do
-    @chapter.directory.should == @directory
+    @chapter.path.should == "chapter"
   end
   
   it "chapter gets the title" do

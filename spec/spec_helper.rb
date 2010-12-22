@@ -18,3 +18,14 @@ def click(scene_id)
   @mouse = Limelight::Mouse.new
   @mouse.click(scene.find(scene_id))
 end
+
+
+def on_first_step
+  require "lesson"
+  @lesson = Lesson.new(File.join(File.dirname(__FILE__), "/../etc/template_method"))
+  @exercise = @lesson.exercises.first
+  @step = @exercise.steps.first
+  production.current_lesson = @lesson
+  production.current_exercise = @exercise
+  production.current_step = @step
+end

@@ -35,7 +35,6 @@ describe  Exercise do
     
     it "saves the source in the step directory" do
       @exercise.save_source("contents")
-      File.read(@source_filename).should == "contents"
       @exercise.source.should == "contents"
     end
 

@@ -18,3 +18,15 @@ def click(scene_id)
   @mouse = Limelight::Mouse.new
   @mouse.click(scene.find(scene_id))
 end
+
+
+def on_first_step
+  require "lesson"
+  reader = DirectoryReader.new(File.join(File.dirname(__FILE__), "/../etc/template_method"))
+  @lesson = Lesson.new(reader.lesson_path, {:magistro_root => ".", :reader => reader})
+  @exercise = @lesson.exercises.first
+  @step = @exercise.steps.first
+  production.current_lesson = @lesson
+  production.current_exercise = @exercise
+  production.current_step = @step
+end

@@ -10,7 +10,7 @@ $:.concat(Dir[File.join(File.dirname(__FILE__), 'gems/*/*/gems/*/lib')])
 
 
 module Production
-  attr_accessor :current_lesson, :current_exercise, :current_step, :step_runner_factory
+  attr_accessor :current_lesson, :current_exercise, :current_step, :step_runner_factory, :magistro_root
 
 #  # Define this method if you want the production name to be different from the default, directory name.
 #  def name
@@ -32,6 +32,7 @@ module Production
    $: << File.expand_path(File.join(File.dirname(__FILE__), "components"))
    require "step_runner_factory"
    @step_runner_factory = StepRunnerFactory.new
+   @magistro_root = File.expand_path("~/.magistro")
  end
 #
 #  # Hook #2.  Called after internal gems have been loaded and stages have been instantiated, yet before

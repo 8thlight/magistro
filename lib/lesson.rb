@@ -1,16 +1,26 @@
-require "directory_model"
+require "directory_reader"
+require "jar_reader"
 require "chapter"
 require "exercise"
-require "traverse"
 
-class Lesson < DirectoryModel
-  include Traverse::Directory
+class Lesson
+  attr_accessor :path, :options, :reader
+  
+  def initialize(path, options = {})
+    @path = path
+    @reader = options[:reader]
+    @options = options
+  end
   
   def exercises
-    return collect(@directory, Exercise)
+    return @reader.collection([@path], 1, Exercise, {:parent => self, :reader => @reader, :magistro_root => @options[:magistro_root]})
+  end
+  
+  def name
+    return @reader.read([@path, "name"])
   end
   
   def chapter
-    return Chapter.new(File.join(@directory, "chapter"))
+    return Chapter.new("chapter", {:reader => @reader, :parent => self})
   end
 end

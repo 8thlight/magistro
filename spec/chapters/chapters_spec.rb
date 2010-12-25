@@ -5,7 +5,8 @@ describe "Chapters scene displays information" do
 
   before do
     @directory = File.expand_path(File.join(File.dirname(__FILE__), "/../../etc/template_method"))
-    @lesson = Lesson.new(@directory)
+    reader = DirectoryReader.new(@directory)
+    @lesson = Lesson.new(reader.lesson_path, {:magistro_root => ".", :reader => reader})
     production.current_lesson = @lesson
   end
 

@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + "/../spec_helper")
 require "directory_chooser"
-describe "Load Lesson" do
+describe "Load Directory Lesson" do
 
   uses_limelight :scene => "exercises", :hidden => true
   before do
@@ -34,6 +34,15 @@ describe "Load Lesson" do
     production.magistro_root = "."
     click "load_lesson_button"
     production.current_lesson.options[:magistro_root].should == "."
+  end
+  
+  it "sends in the directory reader" do
+    click "load_lesson_button"
+    production.current_lesson.reader.class.should == DirectoryReader
+  end
+  
+  it "sends in the jar reader if it is a jar" do
+    
   end
   
 end

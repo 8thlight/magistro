@@ -5,16 +5,15 @@ class Exercise
   include StepNavigation
   attr_accessor :path, :reader
   
-  def initialize(filename, options = {})
+  def initialize(path, options = {})
     @parent = options[:parent]
     @reader = options[:reader]
     @magistro_root = options[:magistro_root]
-    @path = filename
-    @directory = File.expand_path(File.join(lesson.path, filename))
+    @path = path
   end
   
   def steps
-    return @reader.collection([lesson.path, @path], Step, {:reader => @reader, :parent => self})
+    return @reader.collection([lesson.path, @path], 2, Step, {:reader => @reader, :parent => self})
   end
   
   def lesson

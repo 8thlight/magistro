@@ -4,6 +4,7 @@ describe "Load Directory Lesson" do
 
   uses_limelight :scene => "exercises", :hidden => true
   before do
+    production.step_runner_factory = Mocks::StepRunnerFactory.new(:output => "put", :failed_count => 0)
     @directory = File.expand_path(File.join(File.dirname(__FILE__), "/../../etc/template_method"))
     @exercise_directory = File.join(@directory, "1_simple")
     @path = mock('path', :get_absolute_path => File.join(@directory))
@@ -41,8 +42,9 @@ describe "Load Directory Lesson" do
     production.current_lesson.reader.class.should == DirectoryReader
   end
   
-  it "sends in the jar reader if it is a jar" do
-    
+  it "runs the spec on load" do
+    click "load_lesson_button"
+    production.step_runner_factory.runner.ran?.should be_true 
   end
-  
+    
 end

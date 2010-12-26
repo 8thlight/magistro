@@ -40,7 +40,7 @@ class Exercise
   private #############
   
   def source_path
-    return [@magistro_root, lesson.name, @path]
+    return [@magistro_root.strip, lesson.name.strip, @path.strip]
   end
   
   def create_folder(path)

@@ -13,5 +13,6 @@ on_mouse_clicked do
     
     options = {:scene => scene, :step => exercise.steps.first}
     Observer.notify(:load_step, options)
+    Observer.notify(:run, options)
   end
 end

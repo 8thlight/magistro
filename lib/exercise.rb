@@ -13,7 +13,7 @@ class Exercise
   end
   
   def steps
-    return @reader.collection([lesson.path, @path], 2, Step, {:reader => @reader, :parent => self})
+    return @reader.collection([lesson.path, @path], 3, Step, {:reader => @reader, :parent => self})
   end
   
   def lesson

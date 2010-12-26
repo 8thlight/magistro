@@ -2,6 +2,7 @@ GEM
   remote: http://rubygems.org/
   specs:
     diff-lcs (1.1.2)
+    limelight (0.5.11-java)
     rspec (2.3.0)
       rspec-core (~> 2.3.0)
       rspec-expectations (~> 2.3.0)
@@ -15,4 +16,5 @@ PLATFORMS
   java
 
 DEPENDENCIES
+  limelight (= 0.5.11)
   rspec

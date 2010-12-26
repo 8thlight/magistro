@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'rspec'
+gem 'limelight'
 require 'limelight/specs/spec_helper'
 require "limelight/mouse"
 

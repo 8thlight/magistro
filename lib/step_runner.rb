@@ -1,4 +1,5 @@
 require "step"
+require "error_formatter"
 require "rspec"
 require "rspec/core/formatters/base_text_formatter"
 require "rspec/core/reporter"
@@ -36,10 +37,10 @@ class StepRunner
   end
 
   def errors
-    return @errors.string
+    return ErrorFormatter::format(@errors.string)
   end
 
   def output
-    return @output.string
+    return ErrorFormatter::format(@output.string)
   end
 end

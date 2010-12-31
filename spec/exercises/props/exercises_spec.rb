@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + "/../spec_helper")
+require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
 
 describe "Exercises Props scene" do
 
@@ -46,6 +46,12 @@ describe "Exercises Props scene" do
       find_prop("run_button")
       @prop.name.should == "button"
       @prop.players.should include("run")
+    end
+    
+    it "has a run all specs button" do
+      find_prop "run_all_button"
+      @prop.name.should == "button"
+      @prop.players.should include("run_all")
     end
     
   end

@@ -1,10 +1,10 @@
-require File.expand_path(File.dirname(__FILE__) + "/../spec_helper")
+require File.expand_path(File.dirname(__FILE__) + "/../../spec_helper")
 require "directory_chooser"
 describe "Load Lesson" do
 
   uses_limelight :scene => "exercises", :hidden => true
   before do
-    @directory = File.expand_path(File.join(File.dirname(__FILE__), "/../../etc/template_method/1_simple"))
+    @directory = File.expand_path(File.join(File.dirname(__FILE__), "/../../../etc/template_method/1_simple"))
   end
   
   it "opens a new stage with the chapter" do

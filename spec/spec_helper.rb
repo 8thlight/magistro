@@ -22,9 +22,10 @@ end
 
 
 def on_first_step
-  require "lesson"
+  require "lesson"  
   reader = DirectoryReader.new(File.join(File.dirname(__FILE__), "/../etc/template_method"))
-  @lesson = Lesson.new(reader.lesson_path, {:magistro_root => ".", :reader => reader})
+  magistro_root = File.expand_path(File.dirname(__FILE__) + "/test_space")
+  @lesson = Lesson.new(reader.lesson_path, {:magistro_root => magistro_root, :reader => reader})
   @exercise = @lesson.exercises.first
   @step = @exercise.steps.first
   production.current_lesson = @lesson

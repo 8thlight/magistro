@@ -1,6 +1,6 @@
 class ReaderFactory
-  def self.create(directory)
-    return DirectoryReader.new(directory) if File.directory?(directory)
-    return JarReader.new(directory)
+  def self.create(file)
+    return DirectoryReader.new(file) if File.directory?(file)
+    return JarReader.new(file)
   end
 end

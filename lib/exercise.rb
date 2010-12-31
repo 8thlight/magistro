@@ -1,6 +1,12 @@
 require "step_navigation"
 require "step"
 
+class NilClass
+  def strip
+    return ""
+  end
+end
+
 class Exercise
   include StepNavigation
   attr_accessor :path, :reader
@@ -30,7 +36,8 @@ class Exercise
   end
 
   def source
-    return File.read(File.join(source_path, "source"))
+    filename = File.expand_path(File.join(source_path, "source"))
+    return File.read(filename)
   end
   
   def name

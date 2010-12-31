@@ -5,8 +5,7 @@
 
 # the following line should be moved into limelight somehow
 $:.concat(Dir[File.join(File.dirname(__FILE__), 'gems/*/*/gems/*/lib')])
-# also, the line that makes it work is `bundle install --path=gems`.. well,
-# sort of. i mean, theres more to it.. ie, local gems vs deployable gems etc
+# also, the supplementary line is `rm -rf gems && bundle install --path=gems --gemset=Gemfile.prod`
 
 
 module Production

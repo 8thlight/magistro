@@ -31,7 +31,6 @@ class StepRunner
     @formatter.dump_failures
   end
 
-
   def failed_count
     return @formatter.failed_examples.size
   end
@@ -42,5 +41,9 @@ class StepRunner
 
   def output
     return ErrorFormatter::format(@output.string)
+  end
+  
+  def failures?
+    return failed_count > 0
   end
 end

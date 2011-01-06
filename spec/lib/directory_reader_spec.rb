@@ -38,4 +38,9 @@ describe DirectoryReader do
     collection.size.should == 1
   end
   
+  it "lesson_path" do
+    reader = DirectoryReader.new(@directory)
+    reader.lesson_path.should == @directory
+  end
+  
 end

@@ -1,6 +1,5 @@
 Observer.on(:run) do |options|
   scene = options[:scene]
-  
   step = scene.production.current_step
   contents = scene.find('editor_input').text
   step.exercise.save_source(contents)

@@ -34,6 +34,12 @@ describe StepRunner do
     example = mock("example")
     @step_runner.formatter.failed_examples << example
     @step_runner.failed_count.should == 1
-  end  
+  end
+  
+  it "has failures" do
+    example = mock("example")
+    @step_runner.formatter.failed_examples << example
+    @step_runner.failures?.should be_true    
+  end
 
 end

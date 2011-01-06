@@ -17,7 +17,6 @@ class DirectoryReader
     return collection
   end
   
-  #TODO - PWP - test
   def lesson_path
     return @dir
   end

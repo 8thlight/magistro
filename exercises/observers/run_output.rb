@@ -1,4 +1,4 @@
-Observer.on(:run_update) do |options|
+Do.on(:run_update) do |options|
   failed_count = options[:failed_count]
   scene = options[:scene]
   output = options[:output]

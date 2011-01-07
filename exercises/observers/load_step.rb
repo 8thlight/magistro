@@ -1,4 +1,4 @@
-Observer.on(:load_step) do |options|
+Do.on(:load_step) do |options|
   step  = options[:step]
   scene = options[:scene]
   

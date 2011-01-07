@@ -3,7 +3,7 @@ require "mocks/step_runner"
 require "mocks/step_runner_factory"
 require "step"
 require "step_runner"
-require "observer"
+require "do"
 
 describe "Run Exercise", "with next/previous" do
 

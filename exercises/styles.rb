@@ -1,13 +1,16 @@
+main {
+  padding "2%"
+}
+
 teaching {
-  background_color "E5F1FF"
   width "100%"
-  height "20%"  
+  height "20%"
 }
 
 editor {
   background_color :white
   width "100%"
-  height "45%"
+  height 300
 }
 
 tests {
@@ -25,13 +28,14 @@ tests {
 }
 
 editor_input {
-  width 800
-  height 500
+  width "100%"
+  height "100%"
+  bottom_margin 20
 }
 
 test_section {
   padding 10
-  width "49%"
+  width "49%" 
   height "88%"
   rounded_corner_radius "10"
   border_width 4
@@ -59,6 +63,11 @@ top_nav {
 }
 
 instructions {
+  top_border_color "black"
+  top_border_width 4
+  padding 20
+  background_color "white"
+  font_size 12
   width "100%"
-  height "100%"
+  height "90%"
 }

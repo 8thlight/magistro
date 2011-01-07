@@ -12,7 +12,7 @@ on_mouse_clicked do
     production.current_exercise = exercise
     
     options = {:scene => scene, :step => exercise.steps.first}
-    Observer.notify(:load_step, options)
-    Observer.notify(:run, options)
+    Do.notify(:load_step, options)
+    Do.notify(:run, options)
   end
 end

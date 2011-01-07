@@ -1,4 +1,4 @@
-Observer.on(:run_all) do |options|
+Do.on(:run_all) do |options|
   scene = options[:scene]
   exercise = options[:exercise]
   
@@ -11,8 +11,8 @@ Observer.on(:run_all) do |options|
     if runner.failures?
       scene.production.current_step = step
       
-      Observer.notify(:run_update, {:failed_count => runner.failed_count, :scene => scene, :step => step, :output => runner.output})
-      Observer.notify(:load_step, {:scene => scene, :step => step})
+      Do.notify(:run_update, {:failed_count => runner.failed_count, :scene => scene, :step => step, :output => runner.output})
+      Do.notify(:load_step, {:scene => scene, :step => step})
       break
     end
   end  

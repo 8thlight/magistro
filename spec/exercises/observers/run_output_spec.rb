@@ -8,18 +8,18 @@ describe "Changes background on pass/fail" do
   uses_limelight :scene => "exercises", :hidden => true
   
   it "sets the output to the screen" do
-    Observer.notify(:run_update, {:failed_count => 2, :scene => scene, :step => @step})
+    Do.notify(:run_update, {:failed_count => 2, :scene => scene, :step => @step})
     
     scene.find("failure_count").text.should == "2 failure"
   end
   
   it "sets the output to the screen" do
-    Observer.notify(:run_update, {:failed_count => 0, :scene => scene, :step => @step})
+    Do.notify(:run_update, {:failed_count => 0, :scene => scene, :step => @step})
     scene.find("failure_count").text.should == "0 failure"
   end
 
   it "sets the output to the tests output" do
-    Observer.notify(:run_update, {:failed_count => 0, :scene => scene, :step => @step, :output => "put"})
+    Do.notify(:run_update, {:failed_count => 0, :scene => scene, :step => @step, :output => "put"})
     scene.find("output").text.should == "put"    
   end
 

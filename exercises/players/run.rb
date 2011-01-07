@@ -1,4 +1,4 @@
 on_mouse_clicked do
   options = {:scene => scene, :step => production.current_step}
-  Observer.notify(:run, options)
+  Do.notify(:run, options)
 end

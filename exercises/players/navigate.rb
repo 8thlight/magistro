@@ -8,6 +8,6 @@ on_mouse_clicked do
   end
   
   options = {:scene => scene, :step => my_step}
-  Observer.notify(:load_step, options)
-  Observer.notify(:run, options)
+  Do.notify(:load_step, options)
+  Do.notify(:run, options)
 end

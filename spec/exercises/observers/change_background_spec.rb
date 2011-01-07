@@ -7,7 +7,7 @@ describe "Changes background on pass/fail" do
   before { on_first_step }
   
   it "sets the background to green if there are no failures" do    
-    Observer.notify(:run_update, {:failed_count => 0, :scene => scene, :step => @step})
+    Do.notify(:run_update, {:failed_count => 0, :scene => scene, :step => @step})
 
     tests = scene.find("tests")
     tests.style.background_color.should == "#335003ff"
@@ -15,7 +15,7 @@ describe "Changes background on pass/fail" do
   end
   
   it "sets the background to green if there are no failures" do
-    Observer.notify(:run_update, {:failed_count => 2, :scene => scene, :step => @step})
+    Do.notify(:run_update, {:failed_count => 2, :scene => scene, :step => @step})
 
     tests = scene.find("tests")
     tests.style.background_color.should == "#ff0300ff"

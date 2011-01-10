@@ -10,9 +10,11 @@ on_mouse_clicked do
     production.current_lesson = Lesson.new(reader.lesson_path, :magistro_root => production.magistro_root, :reader => reader)
     exercise = production.current_lesson.exercises.first
     production.current_exercise = exercise
+    if reader.class != NullReader
+      options = {:scene => scene, :step => exercise.steps.first} 
+      Do.notify(:load_step, options)
+      Do.notify(:run, options)
+    end
     
-    options = {:scene => scene, :step => exercise.steps.first}
-    Do.notify(:load_step, options)
-    Do.notify(:run, options)
   end
 end

@@ -1,5 +1,3 @@
-require "directory_reader"
-require "jar_reader"
 require "chapter"
 require "exercise"
 
